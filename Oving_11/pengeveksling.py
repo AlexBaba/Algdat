@@ -18,6 +18,7 @@ def minCoinsGreedy(coins, value):
 
 def minCoinsDynamic(coins, value):
     C = [0]
+    C_append = C.append
     for p in xrange(1, value + 1):
         best_cost = Inf
         for c in coins:
@@ -25,7 +26,7 @@ def minCoinsDynamic(coins, value):
                 cost = 1 + C[p - c]
                 if cost < best_cost:
                     best_cost = cost
-        C.append(best_cost)
+        C_append(best_cost)
     return C[value]
 
 
